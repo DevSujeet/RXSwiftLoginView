@@ -32,7 +32,9 @@ class ViewController: UIViewController {
             .bind(to: loginViewModel.username)//pass that through to bind the returned value to the ViewModel's variable as desired by making use of the bindTo operator:
             .disposed(by: disposeBag)
         
-        _ = passwordTextField.rx.text
+        _ = passwordTextField
+            .rx
+            .text
             .map {$0 ?? "" }
             .bind(to: loginViewModel.password)
             .disposed(by: disposeBag)
@@ -51,10 +53,6 @@ class ViewController: UIViewController {
                 UIColor.lightGray
             
         })
-        
-        
-        
-        
     }
 
 
